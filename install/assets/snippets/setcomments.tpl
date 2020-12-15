@@ -27,4 +27,5 @@ if ($FormLister->isSubmitted())
 	'content'=>json_encode($comment, JSON_UNESCAPED_UNICODE),
 	'visible'=>$visible),
 	$modx->getFullTableName('comments'));	
+	header('Location: '.$_SERVER['REQUEST_URI']);
 }
