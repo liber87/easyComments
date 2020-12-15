@@ -7,7 +7,7 @@
  * @category    plugin
  * @internal    @events OnDocFormRender,OnManagerWelcomeHome
  * @internal    @modx_category Comments
- * @internal    @properties &idModule=MODULE ID;text; &ids=id;text; &templates=templates;text;
+ * @internal    @properties &idModule=MODULE ID;text; &ids=id;text; &templates=templates;text;  &parents=parents;text;
  * @internal    @disabled 0
  * @internal    @installset base
  */
@@ -62,7 +62,11 @@ if ($modx->event->name=='OnDocFormRender'){
 		if (in_array($modx->documentObject['id'],$ids_arr)) $flag = true;
 	}
 
-
+	if (isset($parents)){
+		$parents_arr = explode(',',$parents);
+		foreach($parents_arr as $key => $val) $parents_arr[$key] = trim($val);
+		if (in_array($modx->documentObject['parent'],$parents_arr)) $flag = true;
+	}
 
 	if ($flag==false) return;
 
