@@ -22,7 +22,7 @@ echo '<html>
 		$ec = new easyCollection($modx);	
 		if (isset($_GET['cid'])) $num = 0;
 		else $num = 1;
-		$ec->setCurrentConfig($num,-1);			
+		$ec->setCurrentConfig($num,-1,'comments');			
 		$ec->getTable();		
 	echo '</body>
 </html>';
